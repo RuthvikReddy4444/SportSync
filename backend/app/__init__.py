@@ -61,7 +61,7 @@ def create_app():
     def health_check():
         try:
             client.admin.command('ping')
-            return jsonify(ok=True, database='connected', service='PlayReserve API')
+            return jsonify(ok=True, database='connected', service='SportSync API')
         except Exception as e:
             return jsonify(ok=False, error=str(e)), 503
 

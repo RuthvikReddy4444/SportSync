@@ -40,9 +40,9 @@ export default function ReceiptModal({ bookingId, onClose }) {
             {/* Receipt Header */}
             <div className="receipt-header">
               <div className="receipt-brand">
-                <span className="brand-symbol">◈</span>
+                <span className="brand-symbol">⚡</span>
                 <div>
-                  <h2>PLAYRESERVE</h2>
+                  <h2>SPORTSYNC</h2>
                   <small>OFFICIAL BOOKING RECEIPT</small>
                 </div>
               </div>
@@ -146,9 +146,9 @@ export default function ReceiptModal({ bookingId, onClose }) {
             {/* Footer Notice */}
             <div className="receipt-footer">
               <p>
-                <Shield size={13} /> This is a computer-generated confirmation receipt issued by PlayReserve. Present this receipt or show your booking ID at the venue desk upon arrival.
+                <Shield size={13} /> This is a computer-generated confirmation receipt issued by SportSync. Present this receipt or show your booking ID at the venue desk upon arrival.
               </p>
-              <small>PlayReserve Technologies Inc. · www.playreserve.com</small>
+              <small>SportSync Technologies Inc. · www.sportsync.com</small>
             </div>
           </div>
         ) : (

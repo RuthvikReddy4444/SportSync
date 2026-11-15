@@ -3,17 +3,17 @@ import { X, Lock, Mail, User, Phone, Sparkles, Shield, Building, Award } from 'l
 import { useAuth } from '../context/AuthContext';
 
 export default function AuthModal() {
-  const { 
-    authModalOpen, 
-    setAuthModalOpen, 
-    authModalMode, 
+  const {
+    authModalOpen,
+    setAuthModalOpen,
+    authModalMode,
     setAuthModalMode,
     authRoleChoice,
     setAuthRoleChoice,
-    login, 
-    register, 
-    demoLogin, 
-    showToast 
+    login,
+    register,
+    demoLogin,
+    showToast
   } = useAuth();
 
   const [form, setForm] = useState({
@@ -70,11 +70,11 @@ export default function AuthModal() {
         </button>
 
         <div className="auth-head">
-          <span className="section-kicker">PLAYRESERVE ACCOUNT ACCESS</span>
+          <span className="section-kicker">SPORTSYNC ACCOUNT ACCESS</span>
           <h2>{isRegister ? 'Create Your Account' : 'Welcome Back'}</h2>
           <p>
-            {isRegister 
-              ? 'Join as a player to book venues or as an owner to manage facilities.' 
+            {isRegister
+              ? 'Join as a player to book venues or as an owner to manage facilities.'
               : 'Sign in to access your bookings, venues, and profile.'}
           </p>
         </div>
@@ -86,25 +86,25 @@ export default function AuthModal() {
             <b>Instant 1-Click Demo Logins:</b>
           </div>
           <div className="demo-btns-row">
-            <button 
-              type="button" 
-              className="btn-demo-pill" 
+            <button
+              type="button"
+              className="btn-demo-pill"
               onClick={() => handleQuickDemo('player@playreserve.com', 'Demo@123')}
               disabled={loading}
             >
               ⚽ Demo Player
             </button>
-            <button 
-              type="button" 
-              className="btn-demo-pill" 
+            <button
+              type="button"
+              className="btn-demo-pill"
               onClick={() => handleQuickDemo('owner@playreserve.com', 'Demo@123')}
               disabled={loading}
             >
               🏟️ Facility Owner
             </button>
-            <button 
-              type="button" 
-              className="btn-demo-pill" 
+            <button
+              type="button"
+              className="btn-demo-pill"
               onClick={() => handleQuickDemo('admin@playreserve.com', 'Demo@123')}
               disabled={loading}
             >
@@ -119,7 +119,7 @@ export default function AuthModal() {
               <div className="form-group">
                 <label>Account Role:</label>
                 <div className="role-selector-cards">
-                  <div 
+                  <div
                     className={`role-card-opt ${form.role === 'customer' ? 'active' : ''}`}
                     onClick={() => setForm({ ...form, role: 'customer' })}
                   >
@@ -127,7 +127,7 @@ export default function AuthModal() {
                     <b>Player / Customer</b>
                     <small>Search & book courts</small>
                   </div>
-                  <div 
+                  <div
                     className={`role-card-opt ${form.role === 'owner' ? 'active' : ''}`}
                     onClick={() => setForm({ ...form, role: 'owner' })}
                   >
@@ -196,14 +196,14 @@ export default function AuthModal() {
             </div>
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="btn-solid-full auth-submit"
             disabled={loading}
           >
-            {loading 
-              ? 'Processing...' 
-              : isRegister ? 'Create PlayReserve Account' : 'Sign In'}
+            {loading
+              ? 'Processing...'
+              : isRegister ? 'Create SportSync Account' : 'Sign In'}
           </button>
         </form>
 
@@ -211,9 +211,9 @@ export default function AuthModal() {
           {isRegister ? (
             <p>
               Already have an account?{' '}
-              <button 
-                type="button" 
-                className="link-btn" 
+              <button
+                type="button"
+                className="link-btn"
                 onClick={() => setAuthModalMode('login')}
               >
                 Log In
@@ -221,10 +221,10 @@ export default function AuthModal() {
             </p>
           ) : (
             <p>
-              New to PlayReserve?{' '}
-              <button 
-                type="button" 
-                className="link-btn" 
+              New to SportSync?{' '}
+              <button
+                type="button"
+                className="link-btn"
                 onClick={() => setAuthModalMode('register')}
               >
                 Create an Account

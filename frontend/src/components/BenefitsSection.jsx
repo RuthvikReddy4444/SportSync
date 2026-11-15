@@ -9,8 +9,10 @@ import {
   UserCheck, 
   Headphones 
 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
-export default function BenefitsSection({ onOpenOwnerAuth }) {
+export default function BenefitsSection({ onOpenOwnerAuth, onOpenOwnerWorkspace }) {
+  const { isAuthenticated, role } = useAuth();
   const playerBenefits = [
     {
       icon: <Clock size={20} />,
@@ -60,7 +62,7 @@ export default function BenefitsSection({ onOpenOwnerAuth }) {
   return (
     <section className="benefits-section" id="benefits">
       <div className="section-head text-center">
-        <span className="section-kicker">WHY PLAYRESERVE</span>
+        <span className="section-kicker">WHY SPORTSYNC</span>
         <h2 className="section-heading">Built for athletes. Engineered for venue owners.</h2>
       </div>
 
@@ -103,8 +105,19 @@ export default function BenefitsSection({ onOpenOwnerAuth }) {
           </div>
 
           <div className="owner-cta-banner">
-            <button className="btn-white-solid" onClick={onOpenOwnerAuth}>
-              List Your Sports Venue Now →
+            <button 
+              className="btn-white-solid" 
+              onClick={() => {
+                if (isAuthenticated && (role === 'owner' || role === 'admin')) {
+                  if (onOpenOwnerWorkspace) onOpenOwnerWorkspace();
+                } else {
+                  if (onOpenOwnerAuth) onOpenOwnerAuth();
+                }
+              }}
+            >
+              {isAuthenticated && (role === 'owner' || role === 'admin') 
+                ? 'Open Owner Workspace →' 
+                : 'List Your Sports Venue Now →'}
             </button>
           </div>
         </div>

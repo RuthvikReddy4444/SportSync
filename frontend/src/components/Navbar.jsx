@@ -9,22 +9,45 @@ import {
   User, 
   Sparkles,
   Layers,
-  ChevronDown
+  ChevronDown,
+  Palette,
+  Check
 } from 'lucide-react';
 
 export default function Navbar({ currentPage, setPage }) {
   const { user, isAuthenticated, role, logout, openAuth, demoLogin } = useAuth();
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
+  const [themeDropdownOpen, setThemeDropdownOpen] = React.useState(false);
+  const [currentTheme, setCurrentTheme] = React.useState(() => {
+    return localStorage.getItem('sportsync_theme') || 'electric';
+  });
+
+  const themeOptions = [
+    { id: 'electric', label: 'SportSync Electric', dot: '#2563eb' },
+    { id: 'emerald', label: 'Stadium Turf', dot: '#16a34a' },
+    { id: 'sunset', label: 'Clay Court', dot: '#ea580c' },
+    { id: 'midnight', label: 'Midnight Arena', dot: '#38bdf8' }
+  ];
+
+  React.useEffect(() => {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('sportsync_theme', currentTheme);
+  }, [currentTheme]);
+
+  const selectTheme = (themeId) => {
+    setCurrentTheme(themeId);
+    setThemeDropdownOpen(false);
+  };
 
   return (
     <header className="navbar-header">
       <div className="navbar-inner">
         {/* Brand Logo */}
         <div className="logo-group" onClick={() => setPage('home')}>
-          <div className="logo-badge">P</div>
+          <div className="logo-badge">S</div>
           <div className="logo-text">
-            <b>playreserve</b>
-            <span className="logo-sub">SPORTS FACILITY BOOKING</span>
+            <b>SportSync</b>
+            <span className="logo-sub">UNIFIED SPORTS BOOKING SYSTEM</span>
           </div>
         </div>
 
@@ -76,6 +99,42 @@ export default function Navbar({ currentPage, setPage }) {
 
         {/* Right Action Buttons */}
         <div className="nav-actions">
+          {/* Theme Selector */}
+          <div className="theme-switcher-wrapper">
+            <button 
+              className="btn-theme-switcher"
+              onClick={() => setThemeDropdownOpen(!themeDropdownOpen)}
+              title="Switch SportSync Theme"
+              type="button"
+            >
+              <Palette size={14} />
+              <span 
+                className="theme-dot" 
+                style={{ backgroundColor: themeOptions.find(t => t.id === currentTheme)?.dot }}
+              ></span>
+              <span className="theme-label-short">
+                {themeOptions.find(t => t.id === currentTheme)?.label.split(' ')[0]}
+              </span>
+            </button>
+            {themeDropdownOpen && (
+              <div className="theme-dropdown-menu">
+                <div className="theme-dropdown-title">Theme Palette</div>
+                {themeOptions.map((opt) => (
+                  <button 
+                    key={opt.id} 
+                    className={`theme-option-btn ${currentTheme === opt.id ? 'active' : ''}`}
+                    onClick={() => selectTheme(opt.id)}
+                    type="button"
+                  >
+                    <span className="theme-option-dot" style={{ backgroundColor: opt.dot }}></span>
+                    <span className="theme-option-text">{opt.label}</span>
+                    {currentTheme === opt.id && <Check size={14} className="theme-check-icon" />}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           {isAuthenticated ? (
             <div className="user-menu-wrapper">
               <div 

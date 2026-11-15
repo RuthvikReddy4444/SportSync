@@ -47,7 +47,7 @@ export function AuthProvider({ children }) {
       method: 'POST',
       body: JSON.stringify(userData)
     });
-    handleAuthSuccess(res.token, res.user, `Account created! Welcome to PlayReserve, ${res.user.name}.`);
+    handleAuthSuccess(res.token, res.user, `Account created! Welcome to SportSync, ${res.user.name}.`);
     return res.user;
   };
 

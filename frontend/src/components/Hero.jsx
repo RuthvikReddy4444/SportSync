@@ -2,14 +2,30 @@ import React from 'react';
 import { LocateFixed, ArrowRight, ShieldCheck, Zap, Users, Trophy } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
-export default function Hero({ onLocate, facilityCount = 5 }) {
-  const { openAuth, isAuthenticated, role } = useAuth();
+export default function Hero({ onLocate, facilityCount = 5, onOpenOwnerWorkspace }) {
+  const { openAuth, isAuthenticated, role, showToast } = useAuth();
+
+  const handleOwnerWorkspaceClick = () => {
+    if (!isAuthenticated) {
+      openAuth('login', 'owner');
+      showToast('Please sign in to access Owner Workspace. Use the 1-click Demo Owner button!', 'info');
+      return;
+    }
+    if (role === 'owner' || role === 'admin') {
+      if (onOpenOwnerWorkspace) {
+        onOpenOwnerWorkspace();
+      }
+    } else {
+      openAuth('login', 'owner');
+      showToast('You are currently signed in as a Player. Sign in as Facility Owner to access this workspace.', 'info');
+    }
+  };
 
   return (
     <section className="hero-section">
       <div className="hero-content">
         <div className="hero-badge">
-          <Zap size={14} /> YOUR GAME. YOUR COURT. INSTANT BOOKING.
+          <Zap size={14} /> SPORTSYNC · UNIFIED SPORTS BOOKING SYSTEM
         </div>
         <h1 className="hero-title">
           Book sports venues.<br />
@@ -26,20 +42,15 @@ export default function Hero({ onLocate, facilityCount = 5 }) {
             <LocateFixed size={18} /> Find Facilities Near Me
           </button>
           
-          {!isAuthenticated ? (
-            <button 
-              className="btn-secondary-big" 
-              onClick={() => openAuth('register', 'owner')}
-            >
-              List Your Facility <ArrowRight size={16} />
-            </button>
-          ) : (
-            role === 'owner' && (
-              <a href="#owner" className="btn-secondary-big">
-                Owner Workspace <ArrowRight size={16} />
-              </a>
-            )
-          )}
+          <button 
+            type="button"
+            className="btn-secondary-big" 
+            onClick={handleOwnerWorkspaceClick}
+          >
+            {isAuthenticated && (role === 'owner' || role === 'admin') 
+              ? 'Owner Workspace' 
+              : 'List Your Facility'} <ArrowRight size={16} />
+          </button>
         </div>
 
         <div className="hero-trust-metrics">

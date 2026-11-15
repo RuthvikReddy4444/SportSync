@@ -27,7 +27,7 @@ export default function HowItWorks() {
     <section className="how-it-works-section" id="how-it-works">
       <div className="section-head text-center">
         <span className="section-kicker">SIMPLE 3-STEP PROCESS</span>
-        <h2 className="section-heading">How PlayReserve works for players</h2>
+        <h2 className="section-heading">How SportSync works for players</h2>
         <p className="section-sub">
           From finding a court to kickoff in under two minutes.
         </p>

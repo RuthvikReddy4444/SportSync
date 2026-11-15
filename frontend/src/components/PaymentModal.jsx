@@ -59,7 +59,7 @@ export default function PaymentModal({
                 <Lock size={13} /> 256-Bit Simulated Gateway
               </span>
               <h3>Confirm & Pay Reservation</h3>
-              <p>PlayReserve Fast Checkout · Ready for Razorpay</p>
+              <p>SportSync Fast Checkout · Ready for Razorpay</p>
             </div>
 
             {/* Booking Summary Card */}

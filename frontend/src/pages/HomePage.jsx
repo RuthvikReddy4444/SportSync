@@ -117,6 +117,7 @@ export default function HomePage({ onOpenOwnerWorkspace }) {
       <Hero 
         onLocate={handleLocateMe} 
         facilityCount={facilities.length} 
+        onOpenOwnerWorkspace={onOpenOwnerWorkspace}
       />
 
       {/* 2. Search & Meta Bar */}
@@ -212,7 +213,10 @@ export default function HomePage({ onOpenOwnerWorkspace }) {
       <HowItWorks />
 
       {/* 6. Benefits for Players & Venue Owners */}
-      <BenefitsSection onOpenOwnerAuth={() => openAuth('register', 'owner')} />
+      <BenefitsSection 
+        onOpenOwnerAuth={() => openAuth('register', 'owner')} 
+        onOpenOwnerWorkspace={onOpenOwnerWorkspace}
+      />
 
       {/* Facility Details & Slot Booking Modal */}
       {activeFacility && (

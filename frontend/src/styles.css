@@ -4,38 +4,104 @@
   --font-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   
-  /* Forest Green Brand Palette */
-  --color-primary: #174d36;
-  --color-primary-dark: #0e3625;
-  --color-primary-light: #256b4d;
-  --color-primary-subtle: #edf5ee;
-  --color-accent: #38a169;
-  --color-accent-amber: #d97706;
+  /* SportSync Unified Theme - Dynamic Electric Blue & Cyan */
+  --color-primary: #1d4ed8;
+  --color-primary-dark: #0f172a;
+  --color-primary-light: #2563eb;
+  --color-primary-subtle: #eff6ff;
+  --color-accent: #06b6d4;
+  --color-accent-amber: #f59e0b;
   
   /* Neutrals & Surfaces */
-  --bg-page: #f7f9f6;
+  --bg-page: #f8fafc;
   --bg-card: #ffffff;
-  --bg-card-subtle: #fafbf9;
-  --border-light: #e4ebe2;
-  --border-medium: #cbd8c8;
+  --bg-card-subtle: #f1f5f9;
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
   
   /* Text */
-  --text-main: #192b1f;
-  --text-secondary: #58695d;
-  --text-muted: #829286;
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
   --text-inverse: #ffffff;
   
   /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(23, 77, 54, 0.04);
-  --shadow-md: 0 8px 24px rgba(23, 77, 54, 0.08);
-  --shadow-lg: 0 16px 36px rgba(23, 77, 54, 0.12);
-  --shadow-modal: 0 24px 60px rgba(10, 35, 24, 0.25);
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.12);
+  --shadow-modal: 0 24px 60px rgba(15, 23, 42, 0.28);
   
   /* Radius */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+}
+
+/* Stadium Turf Emerald Theme */
+[data-theme="emerald"] {
+  --color-primary: #15803d;
+  --color-primary-dark: #14532d;
+  --color-primary-light: #16a34a;
+  --color-primary-subtle: #f0fdf4;
+  --color-accent: #10b981;
+  --color-accent-amber: #f59e0b;
+  --bg-page: #f7faf7;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f0f5f0;
+  --border-light: #e1ebe2;
+  --border-medium: #c7d8c9;
+  --text-main: #142a1a;
+  --text-secondary: #45634d;
+  --text-muted: #819888;
+  --shadow-sm: 0 2px 4px rgba(20, 83, 45, 0.05);
+  --shadow-md: 0 8px 24px rgba(20, 83, 45, 0.08);
+  --shadow-lg: 0 16px 36px rgba(20, 83, 45, 0.12);
+  --shadow-modal: 0 24px 60px rgba(20, 83, 45, 0.28);
+}
+
+/* Clay Court Sunset Theme */
+[data-theme="sunset"] {
+  --color-primary: #ea580c;
+  --color-primary-dark: #7c2d12;
+  --color-primary-light: #f97316;
+  --color-primary-subtle: #fff7ed;
+  --color-accent: #f59e0b;
+  --color-accent-amber: #d97706;
+  --bg-page: #fffaf5;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #ffede0;
+  --border-light: #fed7aa;
+  --border-medium: #fdba74;
+  --text-main: #431407;
+  --text-secondary: #78350f;
+  --text-muted: #a16207;
+  --shadow-sm: 0 2px 4px rgba(124, 45, 18, 0.05);
+  --shadow-md: 0 8px 24px rgba(124, 45, 18, 0.08);
+  --shadow-lg: 0 16px 36px rgba(124, 45, 18, 0.12);
+  --shadow-modal: 0 24px 60px rgba(124, 45, 18, 0.28);
+}
+
+/* Midnight Arena Dark Theme */
+[data-theme="midnight"] {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-primary-light: #60a5fa;
+  --color-primary-subtle: #1e293b;
+  --color-accent: #38bdf8;
+  --color-accent-amber: #fbbf24;
+  --bg-page: #0b0f19;
+  --bg-card: #111827;
+  --bg-card-subtle: #1f2937;
+  --border-light: #1f2937;
+  --border-medium: #374151;
+  --text-main: #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.6);
+  --shadow-modal: 0 24px 60px rgba(0, 0, 0, 0.8);
 }
 
 * {
@@ -254,6 +320,113 @@ a {
   background: var(--color-primary-dark);
 }
 
+/* Theme Switcher */
+.theme-switcher-wrapper {
+  position: relative;
+}
+
+.btn-theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-theme-switcher:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-subtle);
+}
+
+.theme-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.theme-label-short {
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.theme-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 6px;
+  min-width: 180px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.theme-dropdown-title {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  padding: 6px 10px 4px;
+}
+
+.theme-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 8px 10px;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.theme-option-btn:hover {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+}
+
+.theme-option-btn.active {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.theme-option-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.theme-option-text {
+  flex: 1;
+}
+
+.theme-check-icon {
+  margin-left: auto;
+  color: var(--color-primary);
+}
+
 /* User Menu Dropdown */
 .user-menu-wrapper {
   position: relative;
@@ -350,7 +523,7 @@ a {
    ========================================================================== */
 .hero-section {
   padding: 60px 28px 75px;
-  background: linear-gradient(135deg, #eff6f0 0%, #e2efe3 100%);
+  background: linear-gradient(135deg, var(--color-primary-subtle) 0%, rgba(37, 99, 235, 0.08) 50%, var(--bg-card-subtle) 100%);
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
@@ -1899,7 +2072,7 @@ a {
   display: flex;
   align-items: center;
   gap: 7px;
-  background: linear-gradient(135deg, #174d36 0%, #0e3625 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
   border: 0;
   padding: 8px 16px;
@@ -1908,13 +2081,13 @@ a {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(23, 77, 54, 0.2);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-fill-today:hover {
-  background: linear-gradient(135deg, #1b593f 0%, #12442f 100%);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(23, 77, 54, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 /* Date Navigation Bar in Owner Dashboard */
@@ -2852,7 +3025,7 @@ a {
 /* Generator Buttons */
 .btn-generator-primary {
   width: 100%;
-  background: linear-gradient(135deg, #174d36 0%, #0e3625 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
   border: 0;
   border-radius: var(--radius-md);
@@ -2863,15 +3036,15 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 12px rgba(23, 77, 54, 0.22);
+  box-shadow: var(--shadow-md);
   cursor: pointer;
   transition: all 0.2s ease;
   margin-top: auto;
 }
 
 .btn-generator-primary:hover {
-  background: linear-gradient(135deg, #1b593f 0%, #12442f 100%);
-  box-shadow: 0 6px 18px rgba(23, 77, 54, 0.32);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-1px);
 }
 
@@ -3648,8 +3821,8 @@ a {
 }
 
 .sport-pill-btn.active {
-  background: #174d36;
-  border-color: #174d36;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: white;
 }
 
@@ -4542,10 +4715,10 @@ a {
 }
 
 .court-chip-btn.active {
-  background: #174d36;
-  border-color: #174d36;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: white;
-  box-shadow: 0 3px 8px rgba(23, 77, 54, 0.18);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Step 3: Availability & Unavailability Status Bar */
@@ -5137,7 +5310,7 @@ a {
 }
 
 .venue-modal-header {
-  background: #0e3625;
+  background: var(--color-primary-dark);
   color: white;
   padding: 24px 28px;
   display: flex;
